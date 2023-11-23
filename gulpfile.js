@@ -162,7 +162,8 @@ const images = () => {
         'src/images/**/*.jpg',
         'src/images/**/*.png',
         'src/images/**/*.jpeg',
-        'src/images/*.svg'
+        'src/images/*.svg',
+        'src/images/*.ico'
     ])
         .pipe(image())
         .pipe(webp())
