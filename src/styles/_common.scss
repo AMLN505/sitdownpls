@@ -1,0 +1,95 @@
+@import '_mixin.scss';
+
+html {
+    box-sizing: border-box;
+}
+
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+*:focus-visible {
+    outline: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+a,
+button {
+    @include clearStandart();
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-display: swap;
+    src: local('OpenSansBold'), local('OpenSans-Bold'),
+        url('../fonts/OpenSansBold.woff2'),
+        url('../fonts/OpenSans-Bold.woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-display: swap;
+    src: local('OpenSansRegular'), local('OpenSans-Regular'),
+        url('../fonts/OpenSansRegular.woff2'),
+        url('../fonts/OpenSans-Regular.woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-display: swap;
+    src: local('OpenSansSemibold'), local('OpenSans-Semibold'),
+        url('../fonts/OpenSansSemiBold.woff2'),
+        url('../fonts/OpenSans-SemiBold.woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+  src: local('Playfair Display Black'), local('PlayfairDisplay-Black'),
+      url('../fonts/PlayfairDisplay-Black.woff2'),
+      url('../fonts/PlayfairDisplay-Black.woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: $fs16;
+    font-weight: $fw400;
+    color: $color333333;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.disable-scroll {
+    overflow: hidden;
+}
+

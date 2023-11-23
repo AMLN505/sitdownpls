@@ -1,0 +1,22 @@
+@import '_mixin.scss';
+
+.just-validate-error-label {
+  @include absolute();
+  font-size: $fs12;
+  line-height: 16px;
+  color: $colorFF6972 !important;
+  top: -17px;
+  left: 18px;
+}
+
+.just-validate-error-field,
+.just-validate-error-field:focus {
+  border-color: $colorFF6972 !important;
+}
+
+.just-validate-success-field,
+.just-validate-success-field:focus {
+  border-color: $colorB8EC64 !important;
+}
+
+

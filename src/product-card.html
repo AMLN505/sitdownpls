@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Карточка товара</title>
+
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+
+    <link rel="preload" href="./fonts/OpenSansBold.woff2" as="font">
+    <link rel="preload" href="./fonts/OpenSansSemiBold.woff2" as="font">
+    <link rel="preload" href="./fonts/OpenSansRegular.woff2" as="font">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style/product-card.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script defer src="js/inputmask.min.js"></script>
+    <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script defer src="js/app.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__top">
+            <div class="header__top-container">
+                <div class="header__region">
+                    <div class="header__region-text">
+                        Ваш регион:
+                    </div>
+                    <select name="region" id="region" class="header__region-select">
+                        <option class="header__region-option" value="Москва">Москва</option>
+                        <option class="header__region-option" value="Казань">Казань</option>
+                        <option class="header__region-option" value="Уфа">Уфа</option>
+                        <option class="header__region-option" value="Пермь">Пермь</option>
+                    </select>
+                </div>
+                <a href="tel:+74958854547" class="header__call">
+                    <svg class="header__call-img" width="22" height="22" viewBox="0 0 22 22">
+                        <use href="./images/sprite.svg#call"></use>
+                    </svg>
+                    +7 (495) 885-45-47
+                </a>
+                <ul class="header__menu-top">
+                    <li class="header__top-item">
+                        <a href="#" class="header__top-link">О компании</a>
+                    </li>
+                    <li class="header__top-item">
+                        <a href="#" class="header__top-link">Гарантия и возврат</a>
+                    </li>
+                    <li class="header__top-item">
+                        <a href="#" class="header__top-link">Корпоративным клиентам</a>
+                    </li>
+                    <li class="header__top-item">
+                        <a href="#" class="header__top-link">Дизайн-решение</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header__middle">
+            <button class="header__burger">
+                <svg class="header__burger-img" width="24" height="24" viewBox="0 0 24 24">
+                    <use href="./images/sprite.svg#burger"></use>
+                </svg>
+            </button>
+            <a href="./" class="header__logo">
+                <svg class="header__logo-img" width="187" height="27" viewBox="0 0 187 27">
+                    <use href="./images/sprite.svg#logo"></use>
+                </svg>
+            </a>
+            <button class="header__close">
+                <svg class="header__close-img" width="24" height="24" viewBox="0 0 24 24">
+                    <use href="./images/sprite.svg#x"></use>
+                </svg>
+            </button>
+            <nav class="header__nav">
+                <ul class="header__menu-middle">
+                    <li class="header__middle-item">
+                        <a href="./catalog.html" class="header__middle-link">Каталог</a>
+                    </li>
+                    <li class="header__middle-item">
+                        <a href="#" class="header__middle-link">Магазины</a>
+                    </li>
+                    <li class="header__middle-item">
+                        <a href="#" class="header__middle-link">Шоу-рум</a>
+                    </li>
+                    <li class="header__middle-item">
+                        <a href="#" class="header__middle-link">Доставка и оплата</a>
+                    </li>
+                    <li class="header__middle-item">
+                        <a href="#" class="header__middle-link">Дисконт</a>
+                    </li>
+                    <li class="header__middle-item">
+                        <a href="#" class="header__middle-link">Контакты</a>
+                    </li>
+                </ul>
+                <svg class="header__back-img" width="161" height="112" viewBox="0 0 161 112">
+                    <use href="./images/sprite.svg#eleph"></use>
+                </svg>
+            </nav>
+        </div>
+        <div class="header__bottom">
+            <div class="header__search-block">
+                <input placeholder="Я хочу купить..." type="text" class="header__search-input">
+                <svg class="header__search-img" width="20" height="20" viewBox="0 0 20 20">
+                    <use href="./images/sprite.svg#search"></use>
+                </svg>
+                <button class="header__search-button">
+                    <svg class="header__search-button-img" width="7" height="12" viewBox="0 0 7 12">
+                        <use href="./images/sprite.svg#big-arrow"></use>
+                    </svg>
+                </button>
+            </div>
+            <select name="category" id="category" class="header__category-select">
+                <option value="placeholder" class="header__category-option">Категория</option>
+                <option value="Диваны" class="header__category-option">Диваны</option>
+                <option value="Кресла" class="header__category-option">Кресла</option>
+                <option value="Пуфы" class="header__category-option">Пуфы</option>
+                <option value="Кровати" class="header__category-option">Кровати</option>
+                <option value="Тумбы" class="header__category-option">Тумбы</option>
+                <option value="Комоды" class="header__category-option">Комоды</option>
+                <option value="Стулья" class="header__category-option">Стулья</option>
+                <option value="Столы" class="header__category-option">Столы</option>
+                <option value="Аксессуары" class="header__category-option">Аксессуары</option>
+            </select>
+            <button class="header__user">
+                <svg class="header__user-img" width="26" height="28" viewBox="0 0 26 28">
+                    <use href="./images/sprite.svg#user"></use>
+                </svg>
+            </button>
+            <button class="header__basket">
+                <svg class="header__basket-img" width="41" height="28" viewBox="0 0 41 28">
+                    <use href="./images/sprite.svg#basket"></use>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+            <a href="./" class="breadcrumbs__link">
+                Главная
+            </a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">
+                Каталог
+            </a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">
+                Диваны
+            </a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">
+                Прямые диваны
+            </a>
+        </li>
+        <li class="breadcrumbs__item">
+            D-31
+        </li>
+    </ul>
+    <main>
+        <section class="product">
+            <div class="product__thumbs-swiper swiper modal-opener">
+                <div class="product__thumbs-swiper-wrapper swiper-wrapper">
+                    <div class="product__thumbs-swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__thumbs-swiper-img" src="./images/product-1-1920.webp"
+                            alt="Изображение товара 1">
+                    </div>
+                    <div class="product__thumbs-swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__thumbs-swiper-img" src="./images/product-2-1920.webp"
+                            alt="Изображение товара 2">
+                    </div>
+                    <div class="product__thumbs-swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__thumbs-swiper-img" src="./images/product-3-1920.webp"
+                            alt="Изображение товара 3">
+                    </div>
+                    <div class="product__thumbs-swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__thumbs-swiper-img" src="./images/product-4-1920.webp"
+                            alt="Изображение товара 4">
+                    </div>
+                    <div class="product__thumbs-swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__thumbs-swiper-img" src="./images/product-5-1920.webp"
+                            alt="Изображение товара 5">
+                    </div>
+                </div>
+            </div>
+            <div class="product__swiper swiper">
+                <div class="product__swiper-wrapper swiper-wrapper">
+                    <div class="product__swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__swiper-img" src="./images/product-1-1920.webp"
+                            alt="Изображение товара 1">
+                    </div>
+                    <div class="product__swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__swiper-img" src="./images/product-2-1920.webp"
+                            alt="Изображение товара 2">
+                    </div>
+                    <div class="product__swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__swiper-img" src="./images/product-3-1920.webp"
+                            alt="Изображение товара 3">
+                    </div>
+                    <div class="product__swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__swiper-img" src="./images/product-4-1920.webp"
+                            alt="Изображение товара 4">
+                    </div>
+                    <div class="product__swiper-slide swiper-slide">
+                        <img loading="lazy" class="product__swiper-img" src="./images/product-5-1920.webp"
+                            alt="Изображение товара 5">
+                    </div>
+                </div>
+            </div>
+            <div class="product__main-block">
+                <div class="product__rating">
+                    4,8
+                </div>
+                <h1 class="product__heading">
+                    Диван тканевый прямой <span class="product__name">"D-31"</span>
+                </h1>
+                <p class="product__preview">
+                    Мини 120&nbsp;см без ящика Stark синий (Рогожка)
+                </p>
+                <div class="product__price">
+                    28&nbsp;490 руб
+                </div>
+                <button class="product__button modal-opener">
+                    Купить в один клик
+                </button>
+                <button class="product__add-button">
+                    + Добавить в&nbsp;корзину
+                </button>
+            </div>
+            <div class="product__descr-block">
+                <h2 class="product__descr-heading">
+                    Опорный механизм
+                </h2>
+                <p class="product__descr">
+                    Опорный механизм напоминает пантограф, к&nbsp;которому добавили дополнительную секцию.
+                    У&nbsp;опорного дивана сиденье &laquo;выпрыгивает&raquo; вперёд и&nbsp;вытаскивает вторую часть
+                    спального места. Заключительный штрих&nbsp;&mdash; опустить спинку.
+                    <br><br>
+                    Этот механизм не&nbsp;портит пол и&nbsp;не&nbsp;боится ковров. Требуется чуть больше силы, чтобы
+                    разложить диван, но&nbsp;подросток справится.
+                </p>
+                <img class="product__contur-img" src="./images/product-contur-1.webp" alt="Схема сборки">
+            </div>
+            <ul class="product__properties-list">
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Гарантия
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        18&nbsp;месяцев
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Артикул
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        AAA41269004
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Длина
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        163&nbsp;см
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Высота
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        90&nbsp;см
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Глубина
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        108&nbsp;см
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Спальное&nbsp;место
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        200&nbsp;см&nbsp;х&nbsp;125&nbsp;см
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Высота&nbsp;посадки
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        45&nbsp;см
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Механизм
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Опорный
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Тип&nbsp;обивки
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Рогожка
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Цвет
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Синий
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Наполнитель
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Независимый&nbsp;пружинный&nbsp;блок
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Материал&nbsp;каркаса
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Металл.&nbsp;рама&nbsp;с&nbsp;дерев.&nbsp;латами
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Количество&nbsp;мест
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Двухместные
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Категория
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Прямые&nbsp;тканевые&nbsp;диваны
+                    </span>
+                </li>
+                <li class="product__properties-item">
+                    <div class="product__property-container">
+                        <span class="product__property-name">
+                            Возврат
+                        </span>
+                    </div>
+                    <span class="product__property-value">
+                        Условия
+                    </span>
+                </li>
+            </ul>
+        </section>
+        <section class="similar">
+            <h2 class="similar__heading">
+                Похожие товары
+            </h2>
+            <button class="swiper-button-prev similar__swiper-button-prev">
+                <svg class="similar__search-button-img" width="7" height="12" viewBox="0 0 7 12">
+                    <use href="./images/sprite.svg#big-arrow"></use>
+                </svg>
+            </button>
+            <button class="swiper-button-next similar__swiper-button-next">
+                <svg class="similar__search-button-img" width="7" height="12" viewBox="0 0 7 12">
+                    <use href="./images/sprite.svg#big-arrow"></use>
+                </svg>
+            </button>
+            <div class="similar__swiper swiper">
+                <div class="similar__swiper-wrapper swiper-wrapper">
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-1-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-1-1920.webp"
+                                    alt="Товар 1">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван кожаный<br>
+                                <span class="catalog-item__name">"R-94"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                94&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                5,0
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-2-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-2-1920.webp"
+                                    alt="Товар 2">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван апартековый<br>
+                                <span class="catalog-item__name">"T-75"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                69&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                5,0
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-3-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-3-1920.webp"
+                                    alt="Товар 3">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван тканевый<br>
+                                <span class="catalog-item__name">"D-31"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                28&nbsp;490 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,8
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-4-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-4-1920.webp"
+                                    alt="Товар 4">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван велюровый<br>
+                                <span class="catalog-item__name">"Y-68"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                22&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,8
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-5-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-5-1920.webp"
+                                    alt="Товар 5">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван из&nbsp;шинила<br>
+                                <span class="catalog-item__name">"W-95"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                22&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,8
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-6-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-6-1920.webp"
+                                    alt="Товар 6">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван флоковый<br>
+                                <span class="catalog-item__name">"G-41"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                17&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,8
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-7-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-7-1920.webp"
+                                    alt="Товар 7">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван шиниловый<br>
+                                <span class="catalog-item__name">"V-43"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                19&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,8
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-8-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-8-1920.webp"
+                                    alt="Товар 8">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван велюровый<br>
+                                <span class="catalog-item__name">"S-99"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                19&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,8
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-9-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-9-1920.webp"
+                                    alt="Товар 9">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван из&nbsp;кожзама<br>
+                                <span class="catalog-item__name">"F-85"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                26&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,7
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-10-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-10-1920.webp"
+                                    alt="Товар 10">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван флоковый<br>
+                                <span class="catalog-item__name">"H-64"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                25&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,6
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-11-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-11-1920.webp"
+                                    alt="Товар 11">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван флоковый<br>
+                                <span class="catalog-item__name">"H-58"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                23&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,6
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-12-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-12-1920.webp"
+                                    alt="Товар 12">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван из&nbsp;кожзама<br>
+                                <span class="catalog-item__name">"R-43"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                33&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,6
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-13-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-13-1920.webp"
+                                    alt="Товар 13">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван из&nbsp;шинила<br>
+                                <span class="catalog-item__name">"C-42"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                18&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,6
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-14-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-14-1920.webp"
+                                    alt="Товар 14">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван велюровый<br>
+                                <span class="catalog-item__name">"U-58"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                21&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,6
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-15-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-15-1920.webp"
+                                    alt="Товар 15">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван флоковый<br>
+                                <span class="catalog-item__name">"F-41"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                17&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,5
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-16-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-16-1920.webp"
+                                    alt="Товар 16">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван велюровый<br>
+                                <span class="catalog-item__name">"R-85"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                34&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,5
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-17-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-17-1920.webp"
+                                    alt="Товар 17">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван велюровый<br>
+                                <span class="catalog-item__name">"S-44"</span>
+                            </h3>
+                            <div class="catalog-item__price">
+                                19&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,5
+                            </div>
+                        </article>
+                    </div>
+                    <div class="similar__swiper-slide swiper-slide">
+                        <article class="similar__slide-container catalog-item">
+                            <picture class="catalog-item__picture">
+                                <source srcset="./images/catalog-18-320.webp" media="(max-width: 767px)">
+                                <img loading="lazy" class="catalog-item__img" src="./images/catalog-18-1920.webp"
+                                    alt="Товар 18">
+                            </picture>
+                            <h3 class="catalog-item__item-heading">
+                                Диван из&nbsp;шинила<br>
+                                <span class="catalog-item__name">"C-80"</span>;
+                            </h3>
+                            <div class="catalog-item__price">
+                                20&nbsp;990 руб
+                            </div>
+                            <a href="./product-card.html" class="catalog-item__item-button">
+                                Купить
+                            </a>
+                            <div class="catalog-item__rating">
+                                4,4
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dialog">
+            <dialog id="dialogZoom" class="dialog__zoom zoom modal">
+                <div class="zoom__wrapper">
+                    <div class="zoom__thumbs-swiper swiper">
+                        <div class="zoom__thumbs-swiper-wrapper swiper-wrapper">
+                            <div class="zoom__thumbs-swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__thumbs-swiper-img" src="./images/product-1-1920.webp"
+                                    alt="Изображение товара 1">
+                            </div>
+                            <div class="zoom__thumbs-swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__thumbs-swiper-img" src="./images/product-2-1920.webp"
+                                    alt="Изображение товара 2">
+                            </div>
+                            <div class="zoom__thumbs-swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__thumbs-swiper-img" src="./images/product-3-1920.webp"
+                                    alt="Изображение товара 3">
+                            </div>
+                            <div class="zoom__thumbs-swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__thumbs-swiper-img" src="./images/product-4-1920.webp"
+                                    alt="Изображение товара 4">
+                            </div>
+                            <div class="zoom__thumbs-swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__thumbs-swiper-img" src="./images/product-5-1920.webp"
+                                    alt="Изображение товара 5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zoom__swiper swiper">
+                        <button class="swiper-button-prev zoom__swiper-button-prev">
+                            <svg class="zoom__search-button-img" width="7" height="12" viewBox="0 0 7 12">
+                                <use href="./images/sprite.svg#big-arrow"></use>
+                            </svg>
+                        </button>
+                        <button class="swiper-button-next zoom__swiper-button-next">
+                            <svg class="zoom__search-button-img" width="7" height="12" viewBox="0 0 7 12">
+                                <use href="./images/sprite.svg#big-arrow"></use>
+                            </svg>
+                        </button>
+                        <div class="zoom__swiper-wrapper swiper-wrapper">
+                            <div class="zoom__swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__swiper-img" src="./images/product-1-1920.webp"
+                                    alt="Изображение товара 1">
+                            </div>
+                            <div class="zoom__swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__swiper-img" src="./images/product-2-1920.webp"
+                                    alt="Изображение товара 2">
+                            </div>
+                            <div class="zoom__swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__swiper-img" src="./images/product-3-1920.webp"
+                                    alt="Изображение товара 3">
+                            </div>
+                            <div class="zoom__swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__swiper-img" src="./images/product-4-1920.webp"
+                                    alt="Изображение товара 4">
+                            </div>
+                            <div class="zoom__swiper-slide swiper-slide">
+                                <img loading="lazy" class="zoom__swiper-img" src="./images/product-5-1920.webp"
+                                    alt="Изображение товара 5">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="zoom__close">
+                        <svg class="zoom__close-img" width="24" height="24" viewBox="0 0 24 24">
+                            <use href="./images/sprite.svg#x"></use>
+                        </svg>
+                    </button>
+                </div>
+            </dialog>
+            <dialog id="dialogForm" class="dialog__oneclick oneclick modal">
+                <div class="oneclick__wrapper">
+                    <h2 class="oneclick__heading">
+                        Купить в&nbsp;один клик
+                    </h2>
+                    <p class="oneclick__descr">
+                        Чтобы оформить заказ&nbsp;&mdash; заполните формы ниже и&nbsp;наш менеджер свяжется с&nbsp;вами
+                        в&nbsp;течении часа.
+                    </p>
+                    <form class="oneclick__form">
+                        <label class="oneclick__input-label" for="name">
+                            <input placeholder="Как вас зовут?" type="text" class="oneclick__input" name="name"
+                                id="name">
+                        </label>
+                        <label class="oneclick__input-label" for="tel">
+                            <input placeholder="Ваш телефон" type="tel" class="oneclick__input" name="tel" id="tel">
+                        </label>
+                        <button type="submit" class="oneclick__button">
+                            Отправить
+                        </button>
+                        <label class="oneclick__checkbox-label check" for="checkbox">
+                            <input class="check__checkbox" type="checkbox" name="checkbox" id="checkbox">
+                            <span class="check__checkbox-span"></span>
+                            <span class="check__checkbox-text">
+                                Принимаю
+                            </span>
+                            <a href="#" class="check__link">
+                                пользовательское соглашение
+                            </a>
+                        </label>
+                    </form>
+                    <button class="oneclick__close">
+                        <svg class="oneclick__close-img" width="24" height="24" viewBox="0 0 24 24">
+                            <use href="./images/sprite.svg#x"></use>
+                        </svg>
+                    </button>
+                </div>
+            </dialog>
+            <dialog id="dialogSuccess" class="dialog__success success modal">
+                <div class="success__wrapper">
+                    <svg class="success__back-img" width="172" height="117" viewBox="0 0 172 117">
+                        <use href="./images/sprite.svg#eleph"></use>
+                    </svg>
+                    <h2 class="success__heading">
+                        Спасибо, мы&nbsp;вам перезвоним!
+                    </h2>
+                    <button class="success__close">
+                        <svg class="success__close-img" width="24" height="24" viewBox="0 0 24 24">
+                            <use href="./images/sprite.svg#x"></use>
+                        </svg>
+                    </button>
+                </div>
+            </dialog>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="footer__grid">
+                <div class="footer__block footer__block_1">
+                    <a href="./" class="footer__logo">
+                        <svg class="footer__logo-img" width="187" height="27" viewBox="0 0 187 27">
+                            <use href="./images/sprite.svg#logo"></use>
+                        </svg>
+                    </a>
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item">
+                            <a href="#" class="footer__social-link">
+                                <svg class="footer__logo-img" width="30" height="30" viewBox="0 0 30 30">
+                                    <use href="./images/sprite.svg#fb"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="#" class="footer__social-link">
+                                <svg class="footer__logo-img" width="30" height="30" viewBox="0 0 30 30">
+                                    <use href="./images/sprite.svg#vk"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="#" class="footer__social-link">
+                                <svg class="footer__logo-img" width="30" height="30" viewBox="0 0 30 30">
+                                    <use href="./images/sprite.svg#instagram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__block footer__block_2">
+                    <h2 class="footer__heading">
+                        О&nbsp;нас
+                    </h2>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                О&nbsp;компании
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Блог
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__block footer__block_3">
+                    <h2 class="footer__heading">
+                        Услуги
+                    </h2>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Доставка
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Рассрочка и&nbsp;кредит
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Сборка и&nbsp;установка
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__block footer__block_4">
+                    <h2 class="footer__heading">
+                        Связь с&nbsp;нами
+                    </h2>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Обратная связь
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__block footer__block_5">
+                    <h2 class="footer__heading">
+                        Сотрудничество
+                    </h2>
+                    <ul class="footer__list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Поставщикам
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Оптовикам
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer__list-link">
+                                Карьера
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            SDP<sup class="reg">&reg;</sup> 2011-2021
+        </div>
+    </footer>
+</body>
+
+</html>

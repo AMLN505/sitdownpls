@@ -1,0 +1,176 @@
+@import '_mixin.scss';
+
+.hero {
+    padding-top: 32px;
+
+    &__swiper-slide {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: auto;
+    }
+
+    &__swiper-slide_1 {
+        background-image: url('../images/hero-1-1920.webp');
+    }
+
+    &__swiper-slide_2 {
+        background-image: url('../images/hero-2-1920.webp');
+    }
+
+    &__swiper-slide_3 {
+        background-image: url('../images/hero-3-1920.webp');
+    }
+
+    &__slide-container {
+        @include container();
+        @include flexColumn();
+        width: auto;
+        align-items: start;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        min-height: 240px;
+        height: calc(100% - 160px);
+    }
+
+    &__slide-heading {
+        font-weight: $fw700;
+        line-height: 65px;
+        font-size: $fs48;
+        max-width: 496px;
+        color: $color999999;
+    }
+
+    &__swiper-slide_3 &__slide-heading {
+        color: $colorFFFFFF;
+        max-width: 587px;
+    }
+
+    &__slide-button {
+        margin-top: auto;
+        @include fillButton();
+        padding: 20px 48px;
+    }
+
+    &__swiper .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: 22px;
+    }
+
+    &__swiper .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 8px;
+    }
+
+    &__swiper .swiper-pagination-bullet {
+        background-color: $color333333;
+        opacity: 0.3;
+        height: 14px;
+        width: 14px;
+        transition: background-color $transition-time, opacity $transition-time;
+    }
+
+    &__swiper .swiper-pagination-bullet:focus-visible {
+        background-color: $colorC998FB;
+        opacity: 1;
+    }
+
+    &__swiper .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+
+    @media (max-width: 1350px) {
+        &__swiper-slide_1 {
+            background-image: url('../images/hero-1-1024.webp');
+        }
+
+        &__swiper-slide_2 {
+            background-image: url('../images/hero-2-1024.webp');
+        }
+
+        &__swiper-slide_3 {
+            background-image: url('../images/hero-3-1024.webp');
+        }
+    }
+
+    @media (max-width: 1000px) {
+        &__swiper-slide_1 {
+            background-image: url('../images/hero-1-768.webp');
+        }
+
+        &__swiper-slide_2 {
+            background-image: url('../images/hero-2-768.webp');
+        }
+
+        &__swiper-slide_3 {
+            background-image: url('../images/hero-3-768.webp');
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        &__swiper {
+            padding-bottom: 92px;
+        }
+
+        &__slide-container {
+            position: relative;
+            padding: 30px;
+            min-height: 150px;
+            height: calc(100% - 60px);
+        }
+
+        &__swiper-slide_1 {
+            background-image: url('../images/hero-1-320.webp');
+        }
+
+        &__swiper-slide_2 {
+            background-image: url('../images/hero-2-320.webp');
+        }
+
+        &__swiper-slide_3 {
+            background-image: url('../images/hero-3-320.webp');
+        }
+
+        &__slide-heading {
+            line-height: 27px;
+            font-size: $fs20;
+            max-width: 204px;
+        }
+
+        &__swiper-slide_3 &__slide-heading {
+            max-width: 204px;
+        }
+
+        &__swiper .swiper-horizontal>.swiper-pagination-bullets,
+        .swiper-pagination-bullets.swiper-pagination-horizontal,
+        .swiper-pagination-custom,
+        .swiper-pagination-fraction {
+            bottom: 10px;
+        }
+
+        &__swiper .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+        .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0 4px;
+        }
+
+        &__swiper .swiper-pagination-bullet {
+            height: 6px;
+            width: 6px;
+        }
+
+        &__slide-button {
+            @include absolute();
+            left: 12px;
+            bottom: -92px;
+            width: calc(100% - 60px - 64px);
+        }
+
+        &__pagination {
+            display: none;
+        }
+    }
+
+}
